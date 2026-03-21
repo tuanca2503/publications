@@ -1,0 +1,611 @@
+{
+  "nodes": [
+    {
+      "id": "rust",
+      "label": "Rust",
+      "type": "language",
+      "projects": [
+        "agent",
+        "cli-tool",
+        "rag-pipeline"
+      ],
+      "metadata": {
+        "description": "Systems language với memory safety, zero-cost abstractions và performance cực cao",
+        "pros": [
+          "Memory safe không cần GC",
+          "Performance ngang C/C++",
+          "Fearless concurrency"
+        ],
+        "cons": [
+          "Steep learning curve",
+          "Compile time chậm"
+        ]
+      }
+    },
+    {
+      "id": "python",
+      "label": "Python",
+      "type": "language",
+      "projects": [
+        "agent",
+        "rag-pipeline",
+        "data-pipeline"
+      ],
+      "metadata": {
+        "description": "Ngôn ngữ scripting mạnh cho AI/ML, rapid prototyping",
+        "pros": [
+          "Ecosystem AI/ML phong phú",
+          "Rapid prototyping",
+          "Dễ đọc"
+        ],
+        "cons": [
+          "GIL giới hạn concurrency",
+          "Chậm hơn compiled languages"
+        ]
+      }
+    },
+    {
+      "id": "typescript",
+      "label": "TypeScript",
+      "type": "language",
+      "projects": [
+        "web-app",
+        "api-server"
+      ],
+      "metadata": {
+        "description": "Typed superset của JavaScript, dùng cho frontend và backend",
+        "pros": [
+          "Type safety",
+          "Tooling tốt",
+          "Ecosystem JS khổng lồ"
+        ],
+        "cons": [
+          "Thêm bước compile",
+          "Type complexity"
+        ]
+      }
+    },
+    {
+      "id": "memory",
+      "label": "Memory",
+      "type": "technique",
+      "projects": [
+        "agent",
+        "rag-pipeline"
+      ],
+      "metadata": {
+        "description": "Kỹ thuật quản lý trạng thái và ngữ cảnh, giúp agent nhớ thông tin qua các lượt tương tác"
+      }
+    },
+    {
+      "id": "short-term-memory",
+      "label": "Short-term Memory",
+      "type": "technique",
+      "projects": [
+        "agent",
+        "rag-pipeline"
+      ],
+      "metadata": {
+        "description": "Lưu context tạm thời trong phiên làm việc hiện tại, mất khi kết thúc session"
+      }
+    },
+    {
+      "id": "long-term-memory",
+      "label": "Long-term Memory",
+      "type": "technique",
+      "projects": [
+        "agent",
+        "rag-pipeline"
+      ],
+      "metadata": {
+        "description": "Lưu trữ bền vững qua các phiên, có thể truy vấn lại bất kỳ lúc nào"
+      }
+    },
+    {
+      "id": "singleton-ram",
+      "label": "Singleton / RAM",
+      "type": "impl",
+      "projects": [
+        "agent"
+      ],
+      "metadata": {
+        "description": "Pattern singleton giữ toàn bộ state trong RAM. Cực nhanh nhưng mất khi process tắt",
+        "storage": "ram",
+        "pros": [
+          "Tốc độ cực nhanh",
+          "Zero I/O overhead",
+          "Đơn giản implement"
+        ],
+        "cons": [
+          "Mất dữ liệu khi restart",
+          "Bị giới hạn bởi RAM"
+        ]
+      }
+    },
+    {
+      "id": "sql-disk",
+      "label": "SQL / Disk",
+      "type": "impl",
+      "projects": [
+        "agent",
+        "rag-pipeline",
+        "web-app"
+      ],
+      "metadata": {
+        "description": "Lưu memory vào relational database. Bền vững, có thể query phức tạp",
+        "storage": "disk",
+        "pros": [
+          "Bền vững qua restart",
+          "Query linh hoạt",
+          "ACID transactions"
+        ],
+        "cons": [
+          "Latency cao hơn RAM",
+          "Schema cứng"
+        ]
+      }
+    },
+    {
+      "id": "json-disk",
+      "label": "JSON / Disk",
+      "type": "impl",
+      "projects": [
+        "agent",
+        "cli-tool"
+      ],
+      "metadata": {
+        "description": "Ghi memory ra file JSON. Đơn giản, portable, dễ debug bằng text editor",
+        "storage": "disk",
+        "pros": [
+          "Đơn giản triển khai",
+          "Human-readable",
+          "Portable"
+        ],
+        "cons": [
+          "Không scale tốt",
+          "Không có query engine"
+        ]
+      }
+    },
+    {
+      "id": "vector-db",
+      "label": "Vector DB",
+      "type": "impl",
+      "projects": [
+        "rag-pipeline",
+        "agent"
+      ],
+      "metadata": {
+        "description": "Database lưu embeddings, cho phép semantic search theo độ tương đồng ngữ nghĩa",
+        "storage": "disk",
+        "pros": [
+          "Semantic search",
+          "Scale tốt",
+          "Tích hợp AI dễ"
+        ],
+        "cons": [
+          "Infrastructure phức tạp hơn",
+          "Chi phí cao hơn"
+        ]
+      }
+    },
+    {
+      "id": "concurrency",
+      "label": "Concurrency",
+      "type": "technique",
+      "projects": [
+        "agent",
+        "api-server",
+        "data-pipeline"
+      ],
+      "metadata": {
+        "description": "Xử lý nhiều tác vụ song song, tăng throughput và giảm latency"
+      }
+    },
+    {
+      "id": "async-await",
+      "label": "Async / Await",
+      "type": "impl",
+      "projects": [
+        "agent",
+        "api-server"
+      ],
+      "metadata": {
+        "description": "Non-blocking I/O với coroutines. Hiệu quả cho I/O-bound tasks như gọi API, đọc file",
+        "pros": [
+          "Không block thread",
+          "Dễ đọc hơn callbacks",
+          "Low overhead"
+        ],
+        "cons": [
+          "Không phù hợp CPU-bound tasks"
+        ]
+      }
+    },
+    {
+      "id": "multithreading",
+      "label": "Multithreading",
+      "type": "impl",
+      "projects": [
+        "agent",
+        "data-pipeline"
+      ],
+      "metadata": {
+        "description": "Chạy nhiều thread OS song song. Phù hợp CPU-bound tasks như xử lý data lớn",
+        "pros": [
+          "Tận dụng multi-core",
+          "Phù hợp CPU-bound"
+        ],
+        "cons": [
+          "Race conditions",
+          "Deadlock risk",
+          "Memory overhead"
+        ]
+      }
+    },
+    {
+      "id": "rag",
+      "label": "RAG",
+      "type": "technique",
+      "projects": [
+        "rag-pipeline",
+        "agent"
+      ],
+      "metadata": {
+        "description": "Retrieval-Augmented Generation — kết hợp retrieval từ knowledge base với LLM generation"
+      }
+    },
+    {
+      "id": "embedding",
+      "label": "Embedding",
+      "type": "technique",
+      "projects": [
+        "rag-pipeline",
+        "agent"
+      ],
+      "metadata": {
+        "description": "Chuyển text/data thành vector số học trong không gian đa chiều để so sánh ngữ nghĩa"
+      }
+    },
+    {
+      "id": "chunking",
+      "label": "Chunking",
+      "type": "impl",
+      "projects": [
+        "rag-pipeline"
+      ],
+      "metadata": {
+        "description": "Chia document lớn thành các đoạn nhỏ phù hợp với context window của LLM",
+        "pros": [
+          "Fit context window",
+          "Retrieval chính xác hơn"
+        ],
+        "cons": [
+          "Mất context liên tục nếu chunk sai"
+        ]
+      }
+    },
+    {
+      "id": "llm-api",
+      "label": "LLM API",
+      "type": "impl",
+      "projects": [
+        "agent",
+        "rag-pipeline"
+      ],
+      "metadata": {
+        "description": "Gọi các model ngôn ngữ lớn qua API (OpenAI, Anthropic, Groq...) để generate text",
+        "pros": [
+          "Không cần GPU local",
+          "Cập nhật model dễ"
+        ],
+        "cons": [
+          "Latency mạng",
+          "Chi phí per-token",
+          "Data privacy"
+        ]
+      }
+    },
+    {
+      "id": "tool-use",
+      "label": "Tool Use",
+      "type": "technique",
+      "projects": [
+        "agent"
+      ],
+      "metadata": {
+        "description": "Cho phép LLM gọi các function/tool bên ngoài để thực hiện hành động thật sự"
+      }
+    },
+    {
+      "id": "function-calling",
+      "label": "Function Calling",
+      "type": "impl",
+      "projects": [
+        "agent"
+      ],
+      "metadata": {
+        "description": "LLM tự quyết định khi nào cần gọi function và truyền arguments phù hợp",
+        "pros": [
+          "Structured output",
+          "Tích hợp tốt với API"
+        ],
+        "cons": [
+          "Phụ thuộc vào model support"
+        ]
+      }
+    },
+    {
+      "id": "error-handling",
+      "label": "Error Handling",
+      "type": "technique",
+      "projects": [
+        "agent",
+        "cli-tool",
+        "api-server",
+        "rag-pipeline"
+      ],
+      "metadata": {
+        "description": "Chiến lược xử lý lỗi gracefully, đảm bảo hệ thống không crash và recover được"
+      }
+    },
+    {
+      "id": "result-type",
+      "label": "Result / Option",
+      "type": "impl",
+      "projects": [
+        "agent",
+        "cli-tool"
+      ],
+      "metadata": {
+        "description": "Rust's Result<T,E> và Option<T> — encode lỗi vào type system, buộc xử lý explicit",
+        "pros": [
+          "Compile-time safety",
+          "Không có null pointer",
+          "Rõ ràng flow control"
+        ],
+        "cons": [
+          "Verbose hơn try/catch"
+        ]
+      }
+    },
+    {
+      "id": "retry-backoff",
+      "label": "Retry / Backoff",
+      "type": "impl",
+      "projects": [
+        "agent",
+        "rag-pipeline",
+        "api-server"
+      ],
+      "metadata": {
+        "description": "Tự động retry khi gặp lỗi tạm thời, với exponential backoff để tránh overload",
+        "pros": [
+          "Resilient với network errors",
+          "Tự phục hồi"
+        ],
+        "cons": [
+          "Tăng latency khi lỗi",
+          "Cần giới hạn retry"
+        ]
+      }
+    },
+    {
+      "id": "serialization",
+      "label": "Serialization",
+      "type": "technique",
+      "projects": [
+        "agent",
+        "cli-tool",
+        "api-server",
+        "data-pipeline"
+      ],
+      "metadata": {
+        "description": "Chuyển đổi data structures thành format có thể lưu trữ hoặc truyền qua mạng"
+      }
+    },
+    {
+      "id": "serde-json",
+      "label": "serde / JSON",
+      "type": "impl",
+      "projects": [
+        "agent",
+        "cli-tool"
+      ],
+      "metadata": {
+        "description": "Rust's serde framework — serialize/deserialize tự động qua derive macro, zero-copy khi có thể",
+        "pros": [
+          "Zero boilerplate",
+          "Type safe",
+          "Cực nhanh"
+        ],
+        "cons": [
+          "Compile time tăng"
+        ]
+      }
+    },
+    {
+      "id": "protobuf",
+      "label": "Protobuf",
+      "type": "impl",
+      "projects": [
+        "api-server",
+        "data-pipeline"
+      ],
+      "metadata": {
+        "description": "Binary serialization format của Google. Nhỏ hơn JSON, nhanh hơn, có schema",
+        "pros": [
+          "Compact binary",
+          "Schema evolution",
+          "Cross-language"
+        ],
+        "cons": [
+          "Không human-readable",
+          "Cần codegen"
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "memory",
+      "target": "short-term-memory",
+      "relation": "branches into"
+    },
+    {
+      "source": "memory",
+      "target": "long-term-memory",
+      "relation": "branches into"
+    },
+    {
+      "source": "short-term-memory",
+      "target": "singleton-ram",
+      "relation": "implemented by"
+    },
+    {
+      "source": "long-term-memory",
+      "target": "sql-disk",
+      "relation": "implemented by"
+    },
+    {
+      "source": "long-term-memory",
+      "target": "json-disk",
+      "relation": "implemented by"
+    },
+    {
+      "source": "long-term-memory",
+      "target": "vector-db",
+      "relation": "implemented by"
+    },
+    {
+      "source": "concurrency",
+      "target": "async-await",
+      "relation": "implemented by"
+    },
+    {
+      "source": "concurrency",
+      "target": "multithreading",
+      "relation": "implemented by"
+    },
+    {
+      "source": "rag",
+      "target": "embedding",
+      "relation": "requires"
+    },
+    {
+      "source": "rag",
+      "target": "vector-db",
+      "relation": "uses"
+    },
+    {
+      "source": "rag",
+      "target": "chunking",
+      "relation": "uses"
+    },
+    {
+      "source": "rag",
+      "target": "llm-api",
+      "relation": "uses"
+    },
+    {
+      "source": "tool-use",
+      "target": "function-calling",
+      "relation": "implemented by"
+    },
+    {
+      "source": "tool-use",
+      "target": "llm-api",
+      "relation": "requires"
+    },
+    {
+      "source": "error-handling",
+      "target": "result-type",
+      "relation": "implemented by"
+    },
+    {
+      "source": "error-handling",
+      "target": "retry-backoff",
+      "relation": "implemented by"
+    },
+    {
+      "source": "serialization",
+      "target": "serde-json",
+      "relation": "implemented by"
+    },
+    {
+      "source": "serialization",
+      "target": "protobuf",
+      "relation": "implemented by"
+    },
+    {
+      "source": "memory",
+      "target": "serialization",
+      "relation": "needs"
+    },
+    {
+      "source": "long-term-memory",
+      "target": "serialization",
+      "relation": "needs"
+    },
+    {
+      "source": "rust",
+      "target": "memory",
+      "relation": "applies"
+    },
+    {
+      "source": "rust",
+      "target": "concurrency",
+      "relation": "applies"
+    },
+    {
+      "source": "rust",
+      "target": "error-handling",
+      "relation": "applies"
+    },
+    {
+      "source": "rust",
+      "target": "serialization",
+      "relation": "applies"
+    },
+    {
+      "source": "rust",
+      "target": "tool-use",
+      "relation": "applies"
+    },
+    {
+      "source": "python",
+      "target": "memory",
+      "relation": "applies"
+    },
+    {
+      "source": "python",
+      "target": "rag",
+      "relation": "applies"
+    },
+    {
+      "source": "python",
+      "target": "embedding",
+      "relation": "applies"
+    },
+    {
+      "source": "python",
+      "target": "concurrency",
+      "relation": "applies"
+    },
+    {
+      "source": "typescript",
+      "target": "concurrency",
+      "relation": "applies"
+    },
+    {
+      "source": "typescript",
+      "target": "error-handling",
+      "relation": "applies"
+    },
+    {
+      "source": "typescript",
+      "target": "serialization",
+      "relation": "applies"
+    }
+  ]
+}
