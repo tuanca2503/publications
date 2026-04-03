@@ -610,7 +610,7 @@
   ],
   "metadata": {
     "version": "1.0",
-    "nodeTypeMetadata": {
+    "nodeTypes": {
       "language": {
         "description": "Programming languages used in projects",
         "textColor": "#f0f0f0",
