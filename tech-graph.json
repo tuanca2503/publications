@@ -614,19 +614,19 @@
       "language": {
         "description": "Programming languages used in projects",
         "textColor": "#f0f0f0",
-        "backgroundColor": "#a78bfa",
+        "backgroundColor": "#E53178",
         "radius": 24
       },
       "technique": {
         "description": "General techniques or concepts applied across projects",
         "textColor": "#f0f0f0",
-        "backgroundColor": "#34d399",
+        "backgroundColor": "#8CB5AD",
         "radius": 18
       },
       "impl": {
         "description": "Specific implementations or tools used to realize techniques",
         "textColor": "#f0f0f0",
-        "backgroundColor": "#60a5fa",
+        "backgroundColor": "#084D74",
         "radius": 13
       }
     }
