@@ -3,167 +3,618 @@
     {
       "id": "rust",
       "label": "Rust",
-      "type": "language",
+      "type": "lang",
       "projects": [
         "agent",
-        "cli-tool",
-        "rag-pipeline"
+        "defender",
+        "services",
+        "server",
+        "os"
       ],
       "metadata": {
-        "description": "Systems language với memory safety, zero-cost abstractions và performance cực cao",
+        "description": "A systems programming language focused on memory safety, zero-cost abstractions, and high performance.",
         "pros": [
-          "Memory safe không cần GC",
-          "Performance ngang C/C++",
+          "Memory safety without a garbage collector",
+          "Performance comparable to C/C++",
           "Fearless concurrency"
         ],
         "cons": [
           "Steep learning curve",
-          "Compile time chậm"
+          "Slow compile times"
+        ]
+      }
+    },
+    {
+      "id": "c#",
+      "label": "C#",
+      "type": "lang",
+      "projects": [
+        "server"
+      ],
+      "metadata": {
+        "description": "A modern, object-oriented programming language developed by Microsoft, designed for building applications on the .NET platform with strong tooling and productivity.",
+        "pros": [
+          "Rich ecosystem with .NET",
+          "Strong tooling (Visual Studio, debugging, profiling)",
+          "Automatic memory management (GC)",
+          "Good balance between performance and developer productivity"
+        ],
+        "cons": [
+          "Garbage collection can introduce latency",
+          "Less low-level control compared to C/C++",
+          "Primarily tied to the .NET ecosystem"
+        ]
+      }
+    },
+    {
+      "id": "assembly",
+      "label": "Assembly",
+      "type": "lang",
+      "projects": [
+        "os",
+        "defender"
+      ],
+      "metadata": {
+        "description": "Low-level programming language that provides direct control over hardware resources.",
+        "pros": [
+          "Direct hardware control",
+          "High performance",
+          "Small code size"
+        ],
+        "cons": [
+          "Difficult to write and maintain",
+          "Platform-specific",
+          "Limited abstraction"
+        ]
+      }
+    },
+    {
+      "id": "c++",
+      "label": "C++",
+      "type": "lang",
+      "projects": [
+        "services",
+        "os",
+        "defender"
+      ],
+      "metadata": {
+        "description": "A high-performance systems programming language that combines low-level memory control with high-level abstractions such as object-oriented and generic programming.",
+        "pros": [
+          "Very high performance and low-level control",
+          "Supports OOP, templates, and generic programming",
+          "Wide ecosystem (STL, game engines, embedded systems)",
+          "Fine-grained memory management"
+        ],
+        "cons": [
+          "Complex syntax and steep learning curve",
+          "Manual memory management can cause bugs",
+          "Long compile times",
+          "Hard to maintain large codebases"
         ]
       }
     },
     {
       "id": "python",
       "label": "Python",
-      "type": "language",
+      "type": "lang",
       "projects": [
         "agent",
-        "rag-pipeline",
-        "data-pipeline"
+        "services"
       ],
       "metadata": {
-        "description": "Ngôn ngữ scripting mạnh cho AI/ML, rapid prototyping",
+        "description": "A high-level, general-purpose language used in backend, automation, data processing, and AI/ML, known for simplicity, readability, and rapid development.",
         "pros": [
-          "Ecosystem AI/ML phong phú",
-          "Rapid prototyping",
-          "Dễ đọc"
+          "Rich ecosystem for AI, ML, data science, and automation",
+          "Fast development and prototyping speed",
+          "Easy to read and maintain",
+          "Large community and extensive libraries"
         ],
         "cons": [
-          "GIL giới hạn concurrency",
-          "Chậm hơn compiled languages"
+          "Global Interpreter Lock (GIL) limits true parallel concurrency in CPython",
+          "Slower execution compared to compiled languages like Rust or C++",
+          "Runtime errors due to dynamic typing in large-scale systems"
         ]
       }
     },
     {
-      "id": "typescript",
-      "label": "TypeScript",
-      "type": "language",
+      "id": "frontend",
+      "label": "Frontend (HTML/CSS/JS + Frameworks)",
+      "type": "tech",
       "projects": [
-        "web-app",
-        "api-server"
+        "agent",
+        "defender",
+        "os",
+        "self"
       ],
       "metadata": {
-        "description": "Typed superset của JavaScript, dùng cho frontend và backend",
+        "description": "Frontend stack for building UI of web and software apps using HTML, CSS, JavaScript and frameworks like React, Vue, Angular.",
         "pros": [
-          "Type safety",
-          "Tooling tốt",
-          "Ecosystem JS khổng lồ"
+          "Direct interaction with users",
+          "Rich ecosystem of frameworks (React, Vue, Angular, etc.)",
+          "Highly flexible for building complex UI/UX",
+          "Runs on all modern browsers and platforms",
+          "Supports component-based architecture for scalable apps"
         ],
         "cons": [
-          "Thêm bước compile",
-          "Type complexity"
+          "Browser compatibility issues",
+          "Can become complex at scale",
+          "Performance depends on client device",
+          "Requires careful state management and architecture design"
+        ]
+      }
+    },
+    {
+      "id": "monitoring",
+      "label": "Monitoring",
+      "type": "tech",
+      "projects": [],
+      "metadata": {
+        "description": "A system for observing and analyzing application and system behavior through collected data such as logs, metrics, and traces.",
+        "pros": [
+          "Provides visibility into system health and performance",
+          "Helps detect and diagnose issues",
+          "Supports optimization and scaling decisions"
+        ],
+        "cons": [
+          "Adds overhead to the system",
+          "Requires proper setup and maintenance",
+          "Can generate large amounts of data"
+        ]
+      }
+    },
+    {
+      "id": "logging",
+      "label": "Logging",
+      "type": "tech",
+      "projects": [],
+      "metadata": {
+        "description": "A technique for recording events, messages, and system activities to provide insight into application behavior and errors.",
+        "pros": [
+          "Simple and widely supported",
+          "Useful for debugging and auditing",
+          "Provides historical records of events"
+        ],
+        "cons": [
+          "Can become noisy and hard to manage",
+          "Limited context for complex flows",
+          "May impact performance if excessive"
+        ]
+      }
+    },
+    {
+      "id": "metrics",
+      "label": "Metrics",
+      "type": "tech",
+      "projects": [],
+      "metadata": {
+        "description": "A technique for collecting numerical data representing system performance and behavior over time, such as latency, throughput, and resource usage.",
+        "pros": [
+          "Efficient for monitoring trends over time",
+          "Low overhead compared to logs",
+          "Easy to aggregate and visualize"
+        ],
+        "cons": [
+          "Lacks detailed context",
+          "Not suitable for debugging specific issues",
+          "Requires proper metric design"
+        ]
+      }
+    },
+    {
+      "id": "tracing",
+      "label": "Tracing",
+      "type": "tech",
+      "projects": [],
+      "metadata": {
+        "description": "A technique for tracking the flow of requests and operations across multiple components to understand system behavior and latency.",
+        "pros": [
+          "Provides end-to-end visibility of request flow",
+          "Helps identify bottlenecks and latency issues",
+          "Useful in distributed and complex systems"
+        ],
+        "cons": [
+          "More complex to implement",
+          "Can introduce performance overhead",
+          "Requires proper instrumentation"
+        ]
+      }
+    },
+    {
+      "id": "communication",
+      "label": "Communication",
+      "type": "tech",
+      "projects": [
+        "os",
+        "server",
+        "services",
+        "agent"
+      ],
+      "metadata": {
+        "description": "A system for enabling data exchange between components, processes, or services, either within the same machine or across a network.",
+        "pros": [
+          "Enables interaction between distributed components",
+          "Supports scalable and modular system design",
+          "Flexible across different transport mechanisms"
+        ],
+        "cons": [
+          "Adds complexity in system design",
+          "Requires handling latency and failures",
+          "Can introduce overhead depending on protocol"
+        ]
+      }
+    },
+    {
+      "id": "network",
+      "label": "Network",
+      "type": "pattern",
+      "projects": [
+        "os",
+        "server",
+        "services",
+        "agent"
+      ],
+      "metadata": {
+        "description": "A communication pattern where data is exchanged between systems over a network using defined protocols and addressing.",
+        "pros": [
+          "Allows communication across machines",
+          "Scalable and widely supported",
+          "Decouples systems physically"
+        ],
+        "cons": [
+          "Network latency and instability",
+          "Requires protocol handling",
+          "More complex than local communication"
+        ]
+      }
+    },
+    {
+      "id": "tcp",
+      "label": "TCP",
+      "type": "impl",
+      "projects": [
+        "os",
+        "server",
+        "services",
+        "agent"
+      ],
+      "metadata": {
+        "description": "A connection-oriented transport protocol that ensures reliable, ordered, and error-checked data delivery between systems.",
+        "pros": [
+          "Reliable data transmission",
+          "Ordered packet delivery",
+          "Built-in error handling and retransmission"
+        ],
+        "cons": [
+          "Higher latency due to connection overhead",
+          "Slower compared to UDP",
+          "More resource usage"
+        ]
+      }
+    },
+    {
+      "id": "udp",
+      "label": "UDP",
+      "type": "impl",
+      "projects": [
+        "os",
+        "server",
+        "services",
+        "agent"
+      ],
+      "metadata": {
+        "description": "A connectionless transport protocol that sends data without guaranteeing delivery, order, or duplication.",
+        "pros": [
+          "Low latency and high speed",
+          "Minimal overhead",
+          "Suitable for real-time applications"
+        ],
+        "cons": [
+          "No delivery guarantee",
+          "No ordering of packets",
+          "Requires manual error handling if needed"
+        ]
+      }
+    },
+    {
+      "id": "http",
+      "label": "HTTP",
+      "type": "impl",
+      "projects": [
+        "os",
+        "server",
+        "services",
+        "agent"
+      ],
+      "metadata": {
+        "description": "An application-layer protocol built on top of TCP for structured request-response communication between clients and servers.",
+        "pros": [
+          "Widely adopted and standardized",
+          "Easy to use and integrate",
+          "Supports RESTful and web-based systems"
+        ],
+        "cons": [
+          "Higher overhead due to headers and structure",
+          "Stateless by design",
+          "Less efficient for real-time communication"
+        ]
+      }
+    },
+    {
+      "id": "ipc",
+      "label": "IPC",
+      "type": "pattern",
+      "projects": [
+        "os",
+        "server",
+        "services",
+        "agent"
+      ],
+      "metadata": {
+        "description": "A communication pattern that enables data exchange between processes within the same machine without using network protocols.",
+        "pros": [
+          "Faster than network communication",
+          "Low latency and minimal overhead",
+          "Efficient for local inter-process interaction"
+        ],
+        "cons": [
+          "Limited to the same machine",
+          "Requires synchronization handling",
+          "Less flexible for distributed systems"
+        ]
+      }
+    },
+    {
+      "id": "pipe",
+      "label": "Pipe",
+      "type": "impl",
+      "projects": [
+        "os",
+        "server",
+        "services",
+        "agent"
+      ],
+      "metadata": {
+        "description": "A unidirectional communication mechanism that allows one process to send data to another through a continuous byte stream.",
+        "pros": [
+          "Simple and easy to use",
+          "Lightweight communication",
+          "Well-supported across systems"
+        ],
+        "cons": [
+          "Unidirectional by default",
+          "Limited control over data flow",
+          "Not suitable for complex communication"
+        ]
+      }
+    },
+    {
+      "id": "unix-socket",
+      "label": "Unix Socket",
+      "type": "impl",
+      "projects": [
+        "os",
+        "server",
+        "services",
+        "agent"
+      ],
+      "metadata": {
+        "description": "A local inter-process communication mechanism using socket interfaces, providing bidirectional communication within the same machine.",
+        "pros": [
+          "Faster than TCP for local communication",
+          "Bidirectional communication",
+          "Uses familiar socket API"
+        ],
+        "cons": [
+          "Limited to Unix-based systems",
+          "Requires socket management",
+          "Not usable across machines"
+        ]
+      }
+    },
+    {
+      "id": "shared-memory",
+      "label": "Shared Memory",
+      "type": "impl",
+      "projects": [
+        "os",
+        "server",
+        "services",
+        "agent"
+      ],
+      "metadata": {
+        "description": "A memory architecture pattern where multiple components or agents access a common in-memory data store for fast data sharing and coordination. It is commonly used in concurrent systems, agent-based architectures, and high-performance applications to reduce communication overhead between services or threads.",
+        "pros": [
+          "Very fast data access (in-memory)",
+          "Low communication overhead between components",
+          "Suitable for real-time systems",
+          "Simplifies data sharing in single-process architectures"
+        ],
+        "cons": [
+          "Risk of race conditions and concurrency issues",
+          "Hard to scale across distributed systems",
+          "Memory management complexity",
+          "Data consistency challenges without proper locking or synchronization"
         ]
       }
     },
     {
       "id": "memory",
       "label": "Memory",
-      "type": "technique",
+      "type": "tech",
       "projects": [
-        "agent",
-        "rag-pipeline"
+        "agent"
       ],
       "metadata": {
-        "description": "Kỹ thuật quản lý trạng thái và ngữ cảnh, giúp agent nhớ thông tin qua các lượt tương tác"
+        "description": "A system for storing and managing state and context, allowing the agent to maintain short-term session data and long-term knowledge across interactions."
       }
     },
     {
       "id": "short-term-memory",
       "label": "Short-term Memory",
-      "type": "technique",
+      "type": "tech",
       "projects": [
-        "agent",
-        "rag-pipeline"
+        "agent"
       ],
       "metadata": {
-        "description": "Lưu context tạm thời trong phiên làm việc hiện tại, mất khi kết thúc session"
+        "description": "Temporary memory used to store context during an active session or ongoing interaction. It holds recent information needed for immediate reasoning and decision-making, and is typically cleared or reset when the session ends.",
+        "pros": [
+          "Fast access to recent context",
+          "Improves coherence within a session",
+          "Reduces need for repeated computations or API calls",
+          "Simple lifecycle management (session-based)"
+        ],
+        "cons": [
+          "Data is lost after session ends",
+          "Not suitable for long-term knowledge storage",
+          "Limited capacity depending on implementation",
+          "Requires additional systems for persistence if needed"
+        ]
       }
     },
     {
       "id": "long-term-memory",
       "label": "Long-term Memory",
-      "type": "technique",
-      "projects": [
-        "agent",
-        "rag-pipeline"
-      ],
-      "metadata": {
-        "description": "Lưu trữ bền vững qua các phiên, có thể truy vấn lại bất kỳ lúc nào"
-      }
-    },
-    {
-      "id": "singleton-ram",
-      "label": "Singleton / RAM",
-      "type": "impl",
+      "type": "tech",
       "projects": [
         "agent"
       ],
       "metadata": {
-        "description": "Pattern singleton giữ toàn bộ state trong RAM. Cực nhanh nhưng mất khi process tắt",
-        "storage": "ram",
+        "description": "Persistent memory storage that retains information across sessions. It allows agents or systems to store, retrieve, and reuse knowledge over time, enabling continuity, personalization, and learning from past interactions.",
         "pros": [
-          "Tốc độ cực nhanh",
-          "Zero I/O overhead",
-          "Đơn giản implement"
+          "Data persists across sessions",
+          "Enables personalization and user-specific context",
+          "Supports knowledge accumulation over time",
+          "Can be queried anytime for historical context"
         ],
         "cons": [
-          "Mất dữ liệu khi restart",
-          "Bị giới hạn bởi RAM"
+          "Higher storage and retrieval complexity",
+          "Potential latency compared to in-memory systems",
+          "Requires careful data management and indexing",
+          "Risk of storing outdated or irrelevant information if not maintained"
         ]
       }
     },
     {
-      "id": "sql-disk",
-      "label": "SQL / Disk",
-      "type": "impl",
-      "projects": [
-        "agent",
-        "rag-pipeline",
-        "web-app"
-      ],
+      "id": "ram",
+      "label": "RAM",
+      "type": "stor",
+      "projects": [],
       "metadata": {
-        "description": "Lưu memory vào relational database. Bền vững, có thể query phức tạp",
-        "storage": "disk",
+        "description": "In-memory storage for fast data access.",
         "pros": [
-          "Bền vững qua restart",
-          "Query linh hoạt",
-          "ACID transactions"
+          "Extremely fast access",
+          "No disk I/O overhead",
+          "Simple to implement"
         ],
         "cons": [
-          "Latency cao hơn RAM",
-          "Schema cứng"
+          "Data is lost on restart",
+          "Limited by available RAM"
         ]
       }
     },
     {
-      "id": "json-disk",
-      "label": "JSON / Disk",
-      "type": "impl",
+      "id": "cache",
+      "label": "Cache",
+      "type": "pattern",
       "projects": [
         "agent",
-        "cli-tool"
+        "server",
+        "os"
       ],
       "metadata": {
-        "description": "Ghi memory ra file JSON. Đơn giản, portable, dễ debug bằng text editor",
-        "storage": "disk",
+        "description": "Caches data in short-term storage with a defined expiration time (TTL). Reduces repeated data fetching by serving cached results when available.",
         "pros": [
-          "Đơn giản triển khai",
-          "Human-readable",
-          "Portable"
+          "Reduces repeated requests to source systems",
+          "Improves performance and response time",
+          "Configurable expiration (TTL) for freshness control",
+          "Efficient for high-frequency access patterns"
         ],
         "cons": [
-          "Không scale tốt",
-          "Không có query engine"
+          "Risk of stale data if TTL is not well managed",
+          "Cache invalidation can be complex",
+          "Additional memory usage",
+          "Cache misses still require fetching from source"
+        ]
+      }
+    },
+    {
+      "id": "singleton",
+      "label": "Singleton",
+      "type": "pattern",
+      "projects": [
+        "agent"
+      ],
+      "metadata": {
+        "description": "Singleton pattern ensures a single shared instance holding state in memory. It enables extremely fast data access and synchronization across the application.",
+        "pros": [
+          "Extremely fast (in-memory, no I/O)",
+          "Consistent shared state across components",
+          "Simple and efficient data access"
+        ],
+        "cons": [
+          "Only one shared instance (can become a bottleneck)",
+          "Requires careful state management to avoid conflicts",
+          "Data is lost when the process restarts",
+          "Harder to scale in distributed systems"
+        ]
+      }
+    },
+    {
+      "id": "disk",
+      "label": "Disk",
+      "type": "stor",
+      "projects": [],
+      "metadata": {
+        "description": "Persistent storage on disk used for long-term data retention.",
+        "pros": [
+          "Data persists across restarts",
+          "Large storage capacity",
+          "Suitable for long-term storage"
+        ],
+        "cons": [
+          "Slower than in-memory storage",
+          "Requires I/O operations",
+          "Higher latency compared to RAM"
+        ]
+      }
+    },
+    {
+      "id": "file-storage",
+      "label": "File Storage",
+      "type": "pattern",
+      "projects": [],
+      "metadata": {
+        "description": "Stores data directly in files (e.g., JSON, text, binary) on disk without a database engine.",
+        "pros": [
+          "Simple to implement",
+          "Human-readable (for text formats)",
+          "Portable across systems"
+        ],
+        "cons": [
+          "Limited scalability",
+          "No built-in query capabilities",
+          "Manual data management required"
+        ]
+      }
+    },
+    {
+      "id": "database",
+      "label": "Database",
+      "type": "pattern",
+      "projects": [],
+      "metadata": {
+        "description": "Stores and manages structured data using a database engine that provides querying, indexing, and transaction support.",
+        "pros": [
+          "Powerful querying capabilities",
+          "Efficient data indexing and retrieval",
+          "Supports transactions and data consistency",
+          "Scales better than file-based storage"
+        ],
+        "cons": [
+          "More complex to set up and maintain",
+          "Higher resource usage",
+          "Requires schema design (for relational databases)",
+          "Overhead compared to simple file storage"
         ]
       }
     },
@@ -172,34 +623,37 @@
       "label": "Vector DB",
       "type": "impl",
       "projects": [
-        "rag-pipeline",
         "agent"
       ],
       "metadata": {
-        "description": "Database lưu embeddings, cho phép semantic search theo độ tương đồng ngữ nghĩa",
-        "storage": "disk",
+        "description": "A database for storing vector embeddings and performing semantic similarity search, used in RAG, recommendation, and search systems.",
         "pros": [
-          "Semantic search",
-          "Scale tốt",
-          "Tích hợp AI dễ"
+          "Enables semantic similarity search instead of exact matching",
+          "Scales well for large embedding datasets",
+          "Integrates easily with AI/ML pipelines",
+          "Supports fast nearest-neighbor search (ANN algorithms)"
         ],
         "cons": [
-          "Infrastructure phức tạp hơn",
-          "Chi phí cao hơn"
+          "More complex infrastructure compared to traditional databases",
+          "Higher storage and compute cost",
+          "Requires careful tuning for accuracy vs performance trade-offs",
+          "Not suitable for exact transactional queries"
         ]
       }
     },
     {
       "id": "concurrency",
       "label": "Concurrency",
-      "type": "technique",
+      "type": "tech",
       "projects": [
         "agent",
-        "api-server",
-        "data-pipeline"
+        "server",
+        "services",
+        "os",
+        "defender"
       ],
       "metadata": {
-        "description": "Xử lý nhiều tác vụ song song, tăng throughput và giảm latency"
+        "description": "A programming and system design concept that enables multiple tasks to be managed and executed in overlapping time periods. It improves system responsiveness, throughput, and resource utilization by allowing tasks to progress independently, even if they are not executed simultaneously."
       }
     },
     {
@@ -208,17 +662,23 @@
       "type": "impl",
       "projects": [
         "agent",
-        "api-server"
+        "server",
+        "services",
+        "os",
+        "defender"
       ],
       "metadata": {
-        "description": "Non-blocking I/O với coroutines. Hiệu quả cho I/O-bound tasks như gọi API, đọc file",
+        "description": "A coroutine-based model for non-blocking async execution, used mainly for I/O-bound tasks such as network and API calls.",
         "pros": [
-          "Không block thread",
-          "Dễ đọc hơn callbacks",
-          "Low overhead"
+          "Non-blocking execution improves scalability",
+          "More readable and maintainable than callback-based approaches",
+          "Low overhead compared to thread-based concurrency",
+          "Efficient for handling high I/O concurrency workloads"
         ],
         "cons": [
-          "Không phù hợp CPU-bound tasks"
+          "Not suitable for CPU-bound workloads without parallel execution",
+          "Can introduce complexity in debugging async flows",
+          "Requires proper handling of async context and error propagation"
         ]
       }
     },
@@ -228,43 +688,46 @@
       "type": "impl",
       "projects": [
         "agent",
-        "data-pipeline"
+        "server",
+        "services",
+        "os",
+        "defender"
       ],
       "metadata": {
-        "description": "Chạy nhiều thread OS song song. Phù hợp CPU-bound tasks như xử lý data lớn",
+        "description": "A concurrency model that uses multiple operating system threads to execute tasks in parallel. It is well-suited for CPU-bound workloads such as large-scale data processing, computation-heavy tasks, and parallel algorithms.",
         "pros": [
-          "Tận dụng multi-core",
-          "Phù hợp CPU-bound"
+          "Utilizes multiple CPU cores for parallel execution",
+          "Effective for CPU-bound workloads",
+          "Can significantly improve throughput for heavy computations"
         ],
         "cons": [
-          "Race conditions",
-          "Deadlock risk",
-          "Memory overhead"
+          "Risk of race conditions and shared state corruption",
+          "Potential deadlocks and synchronization complexity",
+          "Higher memory overhead per thread compared to async models",
+          "Requires careful thread management and synchronization mechanisms"
         ]
       }
     },
     {
       "id": "rag",
       "label": "RAG",
-      "type": "technique",
+      "type": "tech",
       "projects": [
-        "rag-pipeline",
         "agent"
       ],
       "metadata": {
-        "description": "Retrieval-Augmented Generation — kết hợp retrieval từ knowledge base với LLM generation"
+        "description": "Retrieval-Augmented Generation (RAG) is an AI architecture that enhances large language models by retrieving relevant information from external knowledge sources (such as vector databases or document stores) and injecting it into the generation process to produce more accurate and context-aware responses."
       }
     },
     {
       "id": "embedding",
       "label": "Embedding",
-      "type": "technique",
+      "type": "tech",
       "projects": [
-        "rag-pipeline",
         "agent"
       ],
       "metadata": {
-        "description": "Chuyển text/data thành vector số học trong không gian đa chiều để so sánh ngữ nghĩa"
+        "description": "A representation technique that transforms text or other data into dense numerical vectors in a high-dimensional space, enabling machines to capture semantic meaning and measure similarity between inputs."
       }
     },
     {
@@ -272,16 +735,19 @@
       "label": "Chunking",
       "type": "impl",
       "projects": [
-        "rag-pipeline"
+        "agent"
       ],
       "metadata": {
-        "description": "Chia document lớn thành các đoạn nhỏ phù hợp với context window của LLM",
+        "description": "A preprocessing technique that splits large documents into smaller, semantically meaningful segments to fit within the context window of large language models and improve retrieval performance in RAG systems.",
         "pros": [
-          "Fit context window",
-          "Retrieval chính xác hơn"
+          "Ensures compatibility with LLM context window limits",
+          "Improves retrieval precision by narrowing search scope",
+          "Enables more efficient indexing in vector databases"
         ],
         "cons": [
-          "Mất context liên tục nếu chunk sai"
+          "Poor chunking strategy can break semantic continuity",
+          "May lead to loss of contextual information across segments",
+          "Requires careful tuning of chunk size and overlap"
         ]
       }
     },
@@ -290,31 +756,32 @@
       "label": "LLM API",
       "type": "impl",
       "projects": [
-        "agent",
-        "rag-pipeline"
+        "agent"
       ],
       "metadata": {
-        "description": "Gọi các model ngôn ngữ lớn qua API (OpenAI, Anthropic, Groq...) để generate text",
+        "description": "An interface for accessing large language models through external APIs (such as OpenAI, Anthropic, Groq, and similar providers) to perform text generation, reasoning, and tool orchestration without requiring local model deployment.",
         "pros": [
-          "Không cần GPU local",
-          "Cập nhật model dễ"
+          "No need for local GPU or heavy infrastructure",
+          "Easy access to state-of-the-art models and updates",
+          "Scalable and maintenance-free model management"
         ],
         "cons": [
-          "Latency mạng",
-          "Chi phí per-token",
-          "Data privacy"
+          "Network latency can affect response time",
+          "Usage cost based on token consumption",
+          "Potential data privacy and compliance concerns",
+          "Dependency on external service availability"
         ]
       }
     },
     {
       "id": "tool-use",
       "label": "Tool Use",
-      "type": "technique",
+      "type": "tech",
       "projects": [
         "agent"
       ],
       "metadata": {
-        "description": "Cho phép LLM gọi các function/tool bên ngoài để thực hiện hành động thật sự"
+        "description": "A capability that allows a large language model to interact with external functions or tools to perform real-world actions, such as fetching data, executing code, calling APIs, or triggering system operations, extending the model beyond pure text generation."
       }
     },
     {
@@ -325,28 +792,27 @@
         "agent"
       ],
       "metadata": {
-        "description": "LLM tự quyết định khi nào cần gọi function và truyền arguments phù hợp",
+        "description": "A mechanism that enables large language models to decide when to invoke external functions and generate structured arguments in a predefined schema, allowing reliable integration with APIs and system tools.",
         "pros": [
-          "Structured output",
-          "Tích hợp tốt với API"
+          "Produces structured and machine-readable outputs",
+          "Enables reliable integration with external APIs and tools",
+          "Reduces ambiguity compared to free-form text outputs",
+          "Improves automation in agent workflows"
         ],
         "cons": [
-          "Phụ thuộc vào model support"
+          "Dependent on model support and provider implementation",
+          "Limited flexibility compared to free-form reasoning",
+          "Requires strict schema design and validation"
         ]
       }
     },
     {
       "id": "error-handling",
       "label": "Error Handling",
-      "type": "technique",
-      "projects": [
-        "agent",
-        "cli-tool",
-        "api-server",
-        "rag-pipeline"
-      ],
+      "type": "tech",
+      "projects": [],
       "metadata": {
-        "description": "Chiến lược xử lý lỗi gracefully, đảm bảo hệ thống không crash và recover được"
+        "description": "A set of strategies and mechanisms for detecting, managing, and recovering from runtime errors in a system, ensuring graceful degradation, system stability, and preventing unexpected crashes during execution."
       }
     },
     {
@@ -355,17 +821,23 @@
       "type": "impl",
       "projects": [
         "agent",
-        "cli-tool"
+        "defender",
+        "services",
+        "server",
+        "os"
       ],
       "metadata": {
-        "description": "Rust's Result<T,E> và Option<T> — encode lỗi vào type system, buộc xử lý explicit",
+        "description": "Rust's Result<T, E> and Option<T> types that encode errors and optional values directly into the type system, enforcing explicit handling of success, failure, and absence cases at compile time.",
         "pros": [
-          "Compile-time safety",
-          "Không có null pointer",
-          "Rõ ràng flow control"
+          "Compile-time safety through the type system",
+          "Eliminates null pointer issues",
+          "Makes control flow and error handling explicit and predictable",
+          "Encourages robust and defensive programming"
         ],
         "cons": [
-          "Verbose hơn try/catch"
+          "More verbose compared to exception-based error handling",
+          "Can increase boilerplate in complex error chains",
+          "Requires explicit handling of all cases"
         ]
       }
     },
@@ -373,80 +845,121 @@
       "id": "retry-backoff",
       "label": "Retry / Backoff",
       "type": "impl",
-      "projects": [
-        "agent",
-        "rag-pipeline",
-        "api-server"
-      ],
+      "projects": [],
       "metadata": {
-        "description": "Tự động retry khi gặp lỗi tạm thời, với exponential backoff để tránh overload",
+        "description": "A fault-tolerance mechanism that automatically retries failed operations caused by transient errors, using exponential backoff to progressively increase delay between retries and prevent system overload.",
         "pros": [
-          "Resilient với network errors",
-          "Tự phục hồi"
+          "Improves resilience against transient network or service failures",
+          "Enables automatic recovery without manual intervention",
+          "Reduces impact of temporary infrastructure instability"
         ],
         "cons": [
-          "Tăng latency khi lỗi",
-          "Cần giới hạn retry"
+          "Increases overall latency during failure conditions",
+          "Can amplify load if misconfigured (retry storms)",
+          "Requires careful tuning of retry limits and backoff strategy"
         ]
       }
     },
     {
       "id": "serialization",
       "label": "Serialization",
-      "type": "technique",
-      "projects": [
-        "agent",
-        "cli-tool",
-        "api-server",
-        "data-pipeline"
-      ],
+      "type": "tech",
+      "projects": [],
       "metadata": {
-        "description": "Chuyển đổi data structures thành format có thể lưu trữ hoặc truyền qua mạng"
+        "description": "A process of converting in-memory data structures into a structured format that can be stored, transmitted over a network, or reconstructed later. It enables interoperability between systems and persistent data exchange."
       }
     },
     {
       "id": "serde-json",
       "label": "serde / JSON",
       "type": "impl",
-      "projects": [
-        "agent",
-        "cli-tool"
-      ],
+      "projects": [],
       "metadata": {
-        "description": "Rust's serde framework — serialize/deserialize tự động qua derive macro, zero-copy khi có thể",
+        "description": "A high-performance serialization framework used to convert data structures for applications, databases, scripts, and systems, with compile-time type safety via derive macros.",
         "pros": [
-          "Zero boilerplate",
-          "Type safe",
-          "Cực nhanh"
+          "Minimal boilerplate using derive macros",
+          "Strong type safety at compile time",
+          "High performance with zero-cost abstractions",
+          "Supports multiple formats (JSON, YAML, TOML, etc.)"
         ],
         "cons": [
-          "Compile time tăng"
-        ]
-      }
-    },
-    {
-      "id": "protobuf",
-      "label": "Protobuf",
-      "type": "impl",
-      "projects": [
-        "api-server",
-        "data-pipeline"
-      ],
-      "metadata": {
-        "description": "Binary serialization format của Google. Nhỏ hơn JSON, nhanh hơn, có schema",
-        "pros": [
-          "Compact binary",
-          "Schema evolution",
-          "Cross-language"
-        ],
-        "cons": [
-          "Không human-readable",
-          "Cần codegen"
+          "Longer compile times due to macro expansion and code generation",
+          "Steeper learning curve for advanced customization"
         ]
       }
     }
   ],
   "edges": [
+    {
+      "source": "logging",
+      "target": "disk",
+      "relation": "stored in"
+    },
+    {
+      "source": "tracing",
+      "target": "disk",
+      "relation": "stored in"
+    },
+    {
+      "source": "metrics",
+      "target": "disk",
+      "relation": "stored in"
+    },
+    {
+      "source": "monitoring",
+      "target": "logging",
+      "relation": "includes"
+    },
+    {
+      "source": "monitoring",
+      "target": "metrics",
+      "relation": "includes"
+    },
+    {
+      "source": "monitoring",
+      "target": "tracing",
+      "relation": "includes"
+    },
+    {
+      "source": "communication",
+      "target": "network",
+      "relation": "implemented by"
+    },
+    {
+      "source": "communication",
+      "target": "ipc",
+      "relation": "implemented by"
+    },
+    {
+      "source": "network",
+      "target": "tcp",
+      "relation": "implemented by"
+    },
+    {
+      "source": "network",
+      "target": "udp",
+      "relation": "implemented by"
+    },
+    {
+      "source": "network",
+      "target": "http",
+      "relation": "implemented by"
+    },
+    {
+      "source": "ipc",
+      "target": "pipe",
+      "relation": "implemented by"
+    },
+    {
+      "source": "ipc",
+      "target": "unix-socket",
+      "relation": "implemented by"
+    },
+    {
+      "source": "ipc",
+      "target": "shared-memory",
+      "relation": "implemented by"
+    },
     {
       "source": "memory",
       "target": "short-term-memory",
@@ -458,22 +971,52 @@
       "relation": "branches into"
     },
     {
+      "source": "memory",
+      "target": "serialization",
+      "relation": "needs"
+    },
+    {
       "source": "short-term-memory",
-      "target": "singleton-ram",
+      "target": "cache",
+      "relation": "implemented by"
+    },
+    {
+      "source": "short-term-memory",
+      "target": "singleton",
+      "relation": "implemented by"
+    },
+    {
+      "source": "cache",
+      "target": "ram",
+      "relation": "stored in"
+    },
+    {
+      "source": "singleton",
+      "target": "ram",
+      "relation": "stored in"
+    },
+    {
+      "source": "long-term-memory",
+      "target": "file-storage",
       "relation": "implemented by"
     },
     {
       "source": "long-term-memory",
-      "target": "sql-disk",
+      "target": "database",
       "relation": "implemented by"
     },
     {
-      "source": "long-term-memory",
-      "target": "json-disk",
-      "relation": "implemented by"
+      "source": "file-storage",
+      "target": "disk",
+      "relation": "stored in"
     },
     {
-      "source": "long-term-memory",
+      "source": "database",
+      "target": "disk",
+      "relation": "stored in"
+    },
+    {
+      "source": "database",
       "target": "vector-db",
       "relation": "implemented by"
     },
@@ -533,19 +1076,19 @@
       "relation": "implemented by"
     },
     {
-      "source": "serialization",
-      "target": "protobuf",
-      "relation": "implemented by"
+      "source": "rust",
+      "target": "communication",
+      "relation": "applies"
     },
     {
-      "source": "memory",
-      "target": "serialization",
-      "relation": "needs"
+      "source": "rust",
+      "target": "monitoring",
+      "relation": "applies"
     },
     {
-      "source": "long-term-memory",
-      "target": "serialization",
-      "relation": "needs"
+      "source": "rust",
+      "target": "frontend",
+      "relation": "enables"
     },
     {
       "source": "rust",
@@ -573,6 +1116,56 @@
       "relation": "applies"
     },
     {
+      "source": "c#",
+      "target": "serialization",
+      "relation": "applies"
+    },
+    {
+      "source": "c#",
+      "target": "error-handling",
+      "relation": "applies"
+    },
+    {
+      "source": "c++",
+      "target": "serialization",
+      "relation": "applies"
+    },
+    {
+      "source": "c++",
+      "target": "error-handling",
+      "relation": "applies"
+    },
+    {
+      "source": "c++",
+      "target": "frontend",
+      "relation": "enables"
+    },
+    {
+      "source": "python",
+      "target": "frontend",
+      "relation": "enables"
+    },
+    {
+      "source": "python",
+      "target": "monitoring",
+      "relation": "applies"
+    },
+    {
+      "source": "python",
+      "target": "communication",
+      "relation": "applies"
+    },
+    {
+      "source": "python",
+      "target": "serialization",
+      "relation": "applies"
+    },
+    {
+      "source": "python",
+      "target": "error-handling",
+      "relation": "applies"
+    },
+    {
       "source": "python",
       "target": "memory",
       "relation": "applies"
@@ -591,43 +1184,40 @@
       "source": "python",
       "target": "concurrency",
       "relation": "applies"
-    },
-    {
-      "source": "typescript",
-      "target": "concurrency",
-      "relation": "applies"
-    },
-    {
-      "source": "typescript",
-      "target": "error-handling",
-      "relation": "applies"
-    },
-    {
-      "source": "typescript",
-      "target": "serialization",
-      "relation": "applies"
     }
   ],
   "metadata": {
     "version": "1.0",
     "nodeTypes": {
-      "language": {
+      "lang": {
         "description": "Programming languages used in projects",
         "textColor": "#f0f0f0",
         "backgroundColor": "#E53178",
         "radius": 24
       },
-      "technique": {
+      "tech": {
         "description": "General techniques or concepts applied across projects",
         "textColor": "#f0f0f0",
         "backgroundColor": "#8CB5AD",
         "radius": 18
       },
+      "pattern": {
+        "description": "Reusable design solution or technique to solve common problems in software architecture",
+        "textColor": "#f0f0f0",
+        "backgroundColor": "#2A9D8F",
+        "radius": 13
+      },
+      "stor": {
+        "description": "Technologies or systems responsible for storing, retrieving, and managing data",
+        "textColor": "#f0f0f0",
+        "backgroundColor": "#3A5A40",
+        "radius": 10
+      },
       "impl": {
         "description": "Specific implementations or tools used to realize techniques",
         "textColor": "#f0f0f0",
         "backgroundColor": "#084D74",
-        "radius": 13
+        "radius": 10
       }
     }
   }

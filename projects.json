@@ -1,40 +1,167 @@
-{
-  "projects": [
-    {
-      "id": "agent",
-      "label": "AI Agent",
-      "status": "in-progress",
-      "lang": "rust",
-      "description": "Agent tự động hóa tác vụ với memory và planning",
-      "highlights": ["Memory system", "Tool calling", "RAG"],
-      "links": {
-        "github": "https://github.com/...",
-        "demo": null
-      }
-    },
-    {
-      "id": "rag-pipeline",
-      "label": "RAG Pipeline",
-      "status": "completed",
-      "lang": "python",
-      "description": "Pipeline retrieval-augmented generation cho document QA",
-      "highlights": ["Vector search", "Chunking strategy", "Re-ranking"],
-      "links": {
-        "github": "https://github.com/...",
-        "demo": "https://..."
-      }
-    },
-    {
-      "id": "cli-tool",
-      "label": "CLI Tool",
-      "status": "completed",
-      "lang": "rust",
-      "description": "Dev tool tự động hóa workflow hàng ngày",
-      "highlights": ["Async I/O", "Config management", "Plugin system"],
-      "links": {
-        "github": "https://github.com/...",
-        "demo": null
-      }
+[
+  {
+    "id": "agent",
+    "label": "Core Agent",
+    "status": "in-progress",
+    "lang": [
+      "rust",
+      "python"
+    ],
+    "description": "Core Agent is an AI-powered execution system that extends the capabilities of an intelligent brain with real-world actions. It provides full control over system operations, acting as a virtual assistant capable of automating tasks, interacting with user interfaces (mouse, keyboard), and responding to events in real time.The agent enforces strict safety and permission controls: high-risk or sensitive actions require explicit user approval, while unsafe operations can be blocked automatically. It continuously evaluates actions to prevent potential security risks and unintended behavior.Core Agent includes dual memory architecture: long-term memory for persistent user data and behavior learning, and short-term memory for session-based context and execution flow. It can adapt over time, learn user habits, and self-correct errors.The system supports a plugin-based architecture for extensibility, allowing custom capabilities to be added independently. It also integrates security mechanisms such as permission gating, risk assessment, and real-time monitoring (e.g., network activity, file scanning, quarantine handling).Overall, Core Agent functions as a secure, adaptive, and autonomous execution layer that bridges AI decision-making with direct system interaction.",
+    "highlights": [
+      "Dual memory system (short-term & long-term)",
+      "Tool calling & action execution",
+      "Retrieval-Augmented Generation (RAG)"
+    ],
+    "links": {
+      "github": {
+        "src": "https://github.com/tuanca2503/core-agent",
+        "visibility": "private"
+      },
+      "demo": null
     }
-  ]
-}
+  },
+  {
+    "id": "defender",
+    "label": "Core Defender",
+    "status": "ideation",
+    "lang": [
+      "assembly",
+      "rust",
+      "c++"
+    ],
+    "description": "Core Defender is a dual-mode security and incident response system designed for threat detection, forensic analysis, and real-time system monitoring. It operates in an offline bootable forensic mode (WinPE) for deep system inspection and recovery, and a live monitoring mode for runtime observation of system behavior.",
+    "highlights": [
+      "Offline forensic boot (WinPE environment)",
+      "Real-time system monitoring agent",
+      "Process, network, and file activity tracking",
+      "Risk detection and permission-based intervention",
+      "Isolated logging and evidence protection strategy",
+      "Malware-resistant monitoring design considerations"
+    ],
+    "links": {
+      "github": null,
+      "demo": null
+    }
+  },
+  {
+    "id": "services",
+    "label": "Core Services",
+    "status": "in-progress",
+    "lang": [
+      "rust",
+      "python",
+      "c++"
+    ],
+    "description": "A shared backend services layer providing reusable infrastructure components such as background jobs, backups, DevOps automation, and system utilities for multiple applications.",
+    "highlights": [
+      "Async I/O",
+      "Config management",
+      "Plugin system",
+      "Background job processing",
+      "Backup automation",
+      "DevOps utilities"
+    ],
+    "links": {
+      "github": {
+        "src": "https://github.com/tuanca2503/core-services",
+        "visibility": "private"
+      },
+      "demo": null
+    }
+  },
+  {
+  "id": "server",
+  "label": "Core Server",
+  "status": "in-progress",
+  "lang": [
+    "rust",
+    "c#"
+  ],
+  "description": "A central core server that acts as the foundation of the system, designed to branch into multiple services and applications such as web platforms, APIs, automation tools, and other domain-specific systems.",
+  "highlights": [
+    "Async I/O",
+    "Config management",
+    "Plugin system",
+    "Background job processing",
+    "Backup automation",
+    "DevOps utilities"
+  ],
+  "links": {
+    "github": {
+      "src": "https://github.com/tuanca2503/core-server",
+      "visibility": "private"
+    },
+    "demo": null
+  }
+  },
+  {
+    "id": "database",
+    "label": "Core Database",
+    "status": "in-progress",
+    "lang": [
+      "rust",
+      "python"
+    ],
+    "description": "Core Database is a shared foundational data infrastructure designed to support multiple future applications. It provides a unified data layer and scalable backend foundation for systems such as web platforms, mobile apps, crypto services, media platforms, e-commerce, chat networks, and more.",
+    "highlights": [
+      "Unified data layer for multiple products",
+      "Scalable backend foundation",
+      "Multi-domain support (web, app, crypto, media, e-commerce, chat)",
+      "High-performance data access",
+      "Extensible architecture for future services",
+      "Cross-project data consistency"
+    ],
+    "links": {
+      "github": {
+        "src": "https://github.com/tuanca2503/core-database",
+        "visibility": "private"
+      },
+      "demo": null
+    }
+  },
+  {
+    "id": "os",
+    "label": "Core OS",
+    "status": "ideation",
+    "lang": [
+      "rust",
+      "assembly",
+      "c++"
+    ],
+    "description": "Core OS is a modular and customizable operating system layer designed to optimize and simplify system architecture. It serves as a unified runtime foundation that integrates with multiple applications while allowing users to personalize, manage, and control system behavior according to their preferences.",
+    "highlights": [
+      "Modular and lightweight OS architecture",
+      "System optimization and simplification",
+      "Unified integration layer for applications",
+      "User-customizable system behavior",
+      "Personalized system management",
+      "Extensible ecosystem for future projects"
+    ],
+    "links": {
+      "github": {
+        "src": "https://github.com/tuanca2503/core-os",
+        "visibility": "private"
+      },
+      "demo": null
+    }
+  },
+  {
+    "id": "!drawing-space",
+    "label": "Drawing Space",
+    "status": "completed",
+    "lang": [
+    ],
+    "description": "A simple space for sketching and drawing, used to express my personal interests and hobbies.",
+    "highlights": [
+      "Chill"
+    ],
+    "links": {
+      "github": {
+        "src": "https://github.com/tuanca2503/drawing-space",
+        "visibility": "public"
+      },
+      "demo": null
+    }
+  }
+]
